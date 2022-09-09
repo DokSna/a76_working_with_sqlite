@@ -83,7 +83,7 @@ class _StudentPageState extends State<StudentPage> {
             children: <Widget>[
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.green,
+                  backgroundColor: Colors.green,
                   textStyle: const TextStyle(color: Colors.white),
                 ),
                 // color: Colors.green,
@@ -95,7 +95,7 @@ class _StudentPageState extends State<StudentPage> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.red,
+                  backgroundColor: Colors.red,
                   textStyle: const TextStyle(color: Colors.white),
                 ),
                 child: const Text('CLEAR'),
