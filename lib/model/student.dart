@@ -1,6 +1,6 @@
 class Student {
   // свойства
-  late int id;
+   int? id;
   late String name;
 
   // конструктор

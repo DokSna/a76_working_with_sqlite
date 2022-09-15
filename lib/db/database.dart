@@ -1,15 +1,16 @@
-import 'dart:async';
+// import 'dart:async';
 import 'dart:io';
 
-import 'package:a76_working_with_sqlite/model/student.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
+// import 'package:sqflite/sqlite_api.dart';
+import 'package:a76_working_with_sqlite/model/student.dart';
 
 class DBProvider {
   DBProvider._();
   static final DBProvider db = DBProvider._();
 
-  late Database _database;
+  static late Database _database;
 
   // переменные для полей таблицы в базе данных
   String studentsTable = 'Students';
@@ -17,8 +18,7 @@ class DBProvider {
   String columnName = 'name';
 
   Future<Database> get database async {
-    if (_database != null) return _database;
-    // return _database;
+    // if (_database != null) return _database;
 
     _database = await _initDB();
     return _database;
@@ -42,7 +42,6 @@ class DBProvider {
 
   // READ
   Future<List<Student>> getStudents() async {
-    // Database db = await this.database;
     Database db = await database;
     final List<Map<String, dynamic>> studentsMapList =
         await db.query(studentsTable);
@@ -77,7 +76,7 @@ class DBProvider {
   }
 
   // Delete
-  Future<int> deleteStudent(int id) async {
+  Future<int> deleteStudent(int? id) async {
     Database db = await database;
     return await db.delete(
       studentsTable,
