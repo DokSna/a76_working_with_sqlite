@@ -1,9 +1,6 @@
-// import 'dart:async';
 import 'dart:io';
-
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
-// import 'package:sqflite/sqlite_api.dart';
 import 'package:a76_working_with_sqlite/model/student.dart';
 
 class DBProvider {
@@ -19,7 +16,6 @@ class DBProvider {
 
   Future<Database> get database async {
     // if (_database != null) return _database;
-
     _database = await _initDB();
     return _database;
   }

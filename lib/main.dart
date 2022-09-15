@@ -2,7 +2,7 @@ import 'package:a76_working_with_sqlite/db/database.dart';
 import 'package:a76_working_with_sqlite/model/student.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -63,7 +63,8 @@ class _StudentPageState extends State<StudentPage> {
             child: Column(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                  padding:
+                      const EdgeInsets.only(left: 10, right: 10, bottom: 10),
                   child: TextFormField(
                     validator: (value) {
                       if (value == null) {
@@ -78,9 +79,9 @@ class _StudentPageState extends State<StudentPage> {
                       _studentName = value!;
                     },
                     controller: _studentNameController,
-                    decoration: InputDecoration(
-                      focusedBorder: new UnderlineInputBorder(
-                        borderSide: new BorderSide(
+                    decoration: const InputDecoration(
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
                             color: Colors.greenAccent,
                             width: 2,
                             style: BorderStyle.solid),
@@ -106,7 +107,7 @@ class _StudentPageState extends State<StudentPage> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
-                  textStyle: TextStyle(color: Colors.white),
+                  textStyle: const TextStyle(color: Colors.white),
                 ),
                 // color: Colors.green,
                 child: Text(isUpdate ? 'UPDATE' : 'ADD'),
@@ -133,13 +134,13 @@ class _StudentPageState extends State<StudentPage> {
                   updateStudentList();
                 },
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(10),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
-                  textStyle: TextStyle(color: Colors.white),
+                  textStyle: const TextStyle(color: Colors.white),
                 ),
                 child: Text(isUpdate ? 'CANCEL UPDATE' : 'CLEAR'),
                 onPressed: () {
@@ -163,10 +164,10 @@ class _StudentPageState extends State<StudentPage> {
                   return generateList(snapshot.data as List<Student>);
                 }
                 if (snapshot.data == null ||
-                    (snapshot.data as List<Student>).length == 0) {
-                  return Text('No Data Found');
+                    (snapshot.data as List<Student>).isEmpty) {
+                  return const Text('No Data Found');
                 }
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               },
             ),
           ),
@@ -181,7 +182,7 @@ class _StudentPageState extends State<StudentPage> {
       child: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: DataTable(
-          columns: [
+          columns: const [
             DataColumn(
               label: Text('NAME'),
             ),

@@ -1,6 +1,6 @@
 class Student {
   // свойства
-   int? id;
+  int? id;
   late String name;
 
   // конструктор
@@ -8,8 +8,6 @@ class Student {
 
   // метод 'to map'
   Map<String, dynamic> toMap() {
-    // Use collection literals when possible.
-    // final map = Map<String, dynamic>();
     final map = <String, dynamic>{};
     map['id'] = id;
     map['name'] = name;
